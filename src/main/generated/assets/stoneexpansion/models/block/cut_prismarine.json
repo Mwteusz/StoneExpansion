@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "stoneexpansion:block/cut_prismarine_top",
+    "side": "stoneexpansion:block/cut_prismarine_side"
+  }
+}

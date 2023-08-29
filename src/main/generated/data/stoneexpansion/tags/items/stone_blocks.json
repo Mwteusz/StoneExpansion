@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:stone",
+    "stoneexpansion:smooth_stone",
+    "stoneexpansion:cut_stone",
+    "stoneexpansion:polished_stone",
+    "minecraft:chiseled_stone_bricks",
+    "stoneexpansion:stone_pillar",
+    "minecraft:stone_bricks",
+    "minecraft:cracked_stone_bricks",
+    "stoneexpansion:stone_tiles"
+  ]
+}

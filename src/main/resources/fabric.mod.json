@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "stoneexpansion",
+	"version": "${version}",
+	"name": "Stone Expansion",
+	"description": "More stone variants!",
+	"authors": [
+		"Mwti"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/stoneexpansion/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.mwti.stoneexpansion.StoneExpansion"
+		],
+		"client": [
+			"net.mwti.stoneexpansion.StoneExpansionClient"
+		],
+		"fabric-datagen": [
+          	"net.mwti.stoneexpansion.StoneExpansionDataGenerator"
+		]
+	},
+	"mixins": [
+		"stoneexpansion.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.22",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

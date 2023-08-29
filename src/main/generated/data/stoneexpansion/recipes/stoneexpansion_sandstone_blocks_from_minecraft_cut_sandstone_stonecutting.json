@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "tag": "stoneexpansion:sandstone_blocks"
+  },
+  "result": "minecraft:cut_sandstone"
+}

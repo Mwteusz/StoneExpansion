@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:sandstone",
+    "minecraft:smooth_sandstone",
+    "minecraft:cut_sandstone",
+    "stoneexpansion:polished_sandstone",
+    "minecraft:chiseled_sandstone",
+    "stoneexpansion:sandstone_pillar",
+    "stoneexpansion:sandstone_bricks",
+    "stoneexpansion:cracked_sandstone_bricks",
+    "stoneexpansion:sandstone_tiles"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:diorite",
+    "stoneexpansion:smooth_diorite",
+    "stoneexpansion:cut_diorite",
+    "minecraft:polished_diorite",
+    "stoneexpansion:chiseled_diorite",
+    "stoneexpansion:diorite_pillar",
+    "stoneexpansion:diorite_bricks",
+    "stoneexpansion:cracked_diorite_bricks",
+    "stoneexpansion:diorite_tiles"
+  ]
+}

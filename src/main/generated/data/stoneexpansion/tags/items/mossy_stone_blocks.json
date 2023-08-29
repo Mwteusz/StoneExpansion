@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:mossy_cobblestone",
+    "stoneexpansion:smooth_mossy_stone",
+    "stoneexpansion:cut_mossy_stone",
+    "stoneexpansion:polished_mossy_stone",
+    "stoneexpansion:chiseled_mossy_stone",
+    "stoneexpansion:mossy_stone_pillar",
+    "minecraft:mossy_stone_bricks",
+    "stoneexpansion:cracked_mossy_stone_bricks",
+    "stoneexpansion:mossy_stone_tiles"
+  ]
+}

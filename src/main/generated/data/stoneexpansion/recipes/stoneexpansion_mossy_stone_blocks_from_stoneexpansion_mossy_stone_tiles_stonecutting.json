@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "tag": "stoneexpansion:mossy_stone_blocks"
+  },
+  "result": "stoneexpansion:mossy_stone_tiles"
+}

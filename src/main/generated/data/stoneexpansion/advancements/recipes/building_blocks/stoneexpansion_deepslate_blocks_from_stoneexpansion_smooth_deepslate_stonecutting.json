@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tag_stoneexpansion_deepslate_blocks": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "stoneexpansion:deepslate_blocks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:stoneexpansion_deepslate_blocks_from_stoneexpansion_smooth_deepslate_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_tag_stoneexpansion_deepslate_blocks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:stoneexpansion_deepslate_blocks_from_stoneexpansion_smooth_deepslate_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}
