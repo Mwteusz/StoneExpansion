@@ -29,6 +29,5 @@ public class ModTags {
         for (BlockMaterial material : BlockMaterial.values()) {
             Items.materialTags.put(material, Items.createTag(material.toString().toLowerCase()+"_blocks"));
         }
-
     }
 }

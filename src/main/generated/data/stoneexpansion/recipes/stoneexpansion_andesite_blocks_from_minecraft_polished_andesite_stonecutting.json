@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "tag": "stoneexpansion:andesite_blocks"
-  },
-  "result": "minecraft:polished_andesite"
-}

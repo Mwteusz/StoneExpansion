@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "tag": "stoneexpansion:red_sandstone_blocks"
-  },
-  "result": "stoneexpansion:cracked_red_sandstone_bricks"
-}

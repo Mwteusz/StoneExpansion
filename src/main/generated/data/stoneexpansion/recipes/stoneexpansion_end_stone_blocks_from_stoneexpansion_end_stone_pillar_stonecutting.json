@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "tag": "stoneexpansion:end_stone_blocks"
-  },
-  "result": "stoneexpansion:end_stone_pillar"
-}
