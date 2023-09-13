@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "tag": "stoneexpansion:bricks_blocks"
-  },
-  "result": "minecraft:bricks"
-}

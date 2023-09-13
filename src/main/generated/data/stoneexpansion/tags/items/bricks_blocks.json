@@ -5,9 +5,9 @@
     "stoneexpansion:cut_bricks",
     "stoneexpansion:polished_bricks",
     "stoneexpansion:chiseled_bricks",
-    "stoneexpansion:bricks_pillar",
+    "stoneexpansion:brick_pillar",
     "minecraft:bricks",
     "stoneexpansion:cracked_bricks",
-    "stoneexpansion:bricks_tiles"
+    "stoneexpansion:brick_tiles"
   ]
 }

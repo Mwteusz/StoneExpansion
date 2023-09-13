@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "tag": "stoneexpansion:purpur_blocks"
-  },
-  "result": "stoneexpansion:polished_purpur"
-}

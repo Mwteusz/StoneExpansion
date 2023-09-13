@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "tag": "stoneexpansion:mud_blocks"
-  },
-  "result": "minecraft:mud_bricks"
-}

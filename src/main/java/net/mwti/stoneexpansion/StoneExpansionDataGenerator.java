@@ -15,5 +15,6 @@ public class StoneExpansionDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModModels::new);
 		pack.addProvider(ModRecipes::new);
 		pack.addProvider(ModItemTags::new);
+		pack.addProvider(ModLang::new);
 	}
 }

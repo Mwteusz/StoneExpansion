@@ -1,7 +1,5 @@
 package net.mwti.stoneexpansion.block;
 
-import static net.mwti.stoneexpansion.block.BlockVariant.SMOOTH;
-
 public enum BlockMaterial {
     ANDESITE,
     GRANITE,
@@ -15,14 +13,28 @@ public enum BlockMaterial {
     DEEPSLATE,
     BLACKSTONE,
     MUD,
-    BRICKS,
-    NETHERRACK,
+    BRICKS(true),
+    NETHER_BRICKS(true),
     QUARTZ,
     PRISMARINE,
     BASALT;
 
+    private final boolean plural;
 
-    public static BlockMaterial get(int i) {
-        return values()[i];
+    BlockMaterial(boolean plural) {
+        this.plural = plural;
+    }
+    BlockMaterial() {
+        this.plural = false;
+    }
+
+    public boolean isPlural() {
+        return plural;
+    }
+
+    public String getSingular() {
+        return plural
+                ? this.name().substring(0, this.name().length() - 1)
+                : this.name();
     }
 }

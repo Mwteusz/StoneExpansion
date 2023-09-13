@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "tag": "stoneexpansion:deepslate_blocks"
-  },
-  "result": "stoneexpansion:cut_deepslate"
-}
