@@ -1,5 +1,5 @@
-// 1.20.1	2023-09-13T15:40:32.7433886	Stone Expansion/Tags for minecraft:block
-dec116a97ca68ba60e91b6e5882fc0d8b74f1560 data\minecraft\tags\blocks\stairs.json
-8b8f26a4d61ae4365ff28bebaf3e020f8be47e42 data\minecraft\tags\blocks\walls.json
-fec770ac29b8ae872da9c589925975f5c752d06c data\minecraft\tags\blocks\slabs.json
-c8405b92d91730540e8551919e9963f81dfc4fd9 data\minecraft\tags\blocks\mineable\pickaxe.json
+// 1.20.1	2023-09-14T00:06:35.8103985	Stone Expansion/Tags for minecraft:block
+d5ce7f4dd7a23c1599a202a7b0c888c44b43e808 data\minecraft\tags\blocks\stairs.json
+3800675dee2c333830ace8688c0b98c61d992e98 data\minecraft\tags\blocks\walls.json
+61572bee84e33dc4c5a02c6916e2bf80cc661a61 data\minecraft\tags\blocks\slabs.json
+f16b552415b7c9ac1f6712ed5298160688f11c0a data\minecraft\tags\blocks\mineable\pickaxe.json

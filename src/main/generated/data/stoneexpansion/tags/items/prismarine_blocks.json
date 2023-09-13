@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:prismarine",
+    "stoneexpansion:cobbled_prismarine",
     "stoneexpansion:smooth_prismarine",
     "stoneexpansion:cut_prismarine",
     "stoneexpansion:polished_prismarine",

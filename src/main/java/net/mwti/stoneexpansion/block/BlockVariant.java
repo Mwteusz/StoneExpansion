@@ -2,6 +2,7 @@ package net.mwti.stoneexpansion.block;
 
 public enum BlockVariant {
     BASE(true,false, true, true),
+    COBBLED(true,true,true,true),
     SMOOTH(true,true, true, false),
     CUT(false,false, true, false),
     POLISHED(true,true, true, true),

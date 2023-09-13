@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:granite",
+    "stoneexpansion:cobbled_granite",
     "stoneexpansion:smooth_granite",
     "stoneexpansion:cut_granite",
     "minecraft:polished_granite",

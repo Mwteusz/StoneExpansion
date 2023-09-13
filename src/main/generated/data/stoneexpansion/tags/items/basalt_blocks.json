@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:basalt",
+    "stoneexpansion:cobbled_basalt",
     "minecraft:smooth_basalt",
     "stoneexpansion:cut_basalt",
     "stoneexpansion:polished_basalt",

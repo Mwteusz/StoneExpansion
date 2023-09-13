@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:stone",
+    "minecraft:cobblestone",
     "stoneexpansion:smooth_stone",
     "stoneexpansion:cut_stone",
     "stoneexpansion:polished_stone",

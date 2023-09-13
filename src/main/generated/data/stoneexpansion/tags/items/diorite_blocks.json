@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:diorite",
+    "stoneexpansion:cobbled_diorite",
     "stoneexpansion:smooth_diorite",
     "stoneexpansion:cut_diorite",
     "minecraft:polished_diorite",

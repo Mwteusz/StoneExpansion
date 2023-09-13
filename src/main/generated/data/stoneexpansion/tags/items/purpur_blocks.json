@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:purpur_block",
+    "stoneexpansion:cobbled_purpur",
     "stoneexpansion:smooth_purpur",
     "stoneexpansion:cut_purpur",
     "stoneexpansion:polished_purpur",

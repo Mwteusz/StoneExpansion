@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:packed_mud",
+    "stoneexpansion:cobbled_mud",
     "stoneexpansion:smooth_mud",
     "stoneexpansion:cut_mud",
     "stoneexpansion:polished_mud",

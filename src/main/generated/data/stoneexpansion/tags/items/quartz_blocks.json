@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "stoneexpansion:cobbled_quartz",
     "minecraft:smooth_quartz",
     "stoneexpansion:cut_quartz",
     "minecraft:quartz_block",

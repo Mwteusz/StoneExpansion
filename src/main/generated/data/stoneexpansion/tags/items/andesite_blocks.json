@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:andesite",
+    "stoneexpansion:cobbled_andesite",
     "stoneexpansion:smooth_andesite",
     "stoneexpansion:cut_andesite",
     "minecraft:polished_andesite",

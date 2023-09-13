@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:end_stone",
+    "stoneexpansion:cobbled_end_stone",
     "stoneexpansion:smooth_end_stone",
     "stoneexpansion:cut_end_stone",
     "stoneexpansion:polished_end_stone",

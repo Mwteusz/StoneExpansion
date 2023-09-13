@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "stoneexpansion:cobbled_bricks",
     "stoneexpansion:smooth_bricks",
     "stoneexpansion:cut_bricks",
     "stoneexpansion:polished_bricks",
