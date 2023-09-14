@@ -3,12 +3,12 @@
   "values": [
     "stoneexpansion:cobbled_bricks",
     "stoneexpansion:smooth_bricks",
-    "stoneexpansion:cut_bricks",
     "stoneexpansion:polished_bricks",
     "stoneexpansion:chiseled_bricks",
-    "stoneexpansion:brick_pillar",
+    "stoneexpansion:cut_bricks",
     "minecraft:bricks",
     "stoneexpansion:cracked_bricks",
+    "stoneexpansion:brick_pillar",
     "stoneexpansion:brick_tiles"
   ]
 }

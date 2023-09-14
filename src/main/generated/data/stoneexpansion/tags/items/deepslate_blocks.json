@@ -4,12 +4,12 @@
     "minecraft:deepslate",
     "minecraft:cobbled_deepslate",
     "stoneexpansion:smooth_deepslate",
-    "stoneexpansion:cut_deepslate",
     "minecraft:polished_deepslate",
     "minecraft:chiseled_deepslate",
-    "stoneexpansion:deepslate_pillar",
+    "stoneexpansion:cut_deepslate",
     "minecraft:deepslate_bricks",
     "minecraft:cracked_deepslate_bricks",
+    "stoneexpansion:deepslate_pillar",
     "minecraft:deepslate_tiles"
   ]
 }

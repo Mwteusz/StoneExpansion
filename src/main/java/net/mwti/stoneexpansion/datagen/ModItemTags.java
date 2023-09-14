@@ -29,7 +29,7 @@ public class ModItemTags extends FabricTagProvider.ItemTagProvider {
             for(BlockVariant variant : BlockVariant.values()) {
                 if(variant == BlockVariant.DARK)
                     continue;
-                ModBlocks.getBlock(material, variant, BlockShape.BLOCK).ifPresent(block ->
+                ModBlocks.getBlock(material, variant, BlockShape.FULL_BLOCK).ifPresent(block ->
                         getOrCreateTagBuilder(ModTags.Items.getTag(material)).add(block.asItem())
                 );
             }

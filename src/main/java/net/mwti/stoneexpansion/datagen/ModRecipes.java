@@ -43,7 +43,7 @@ public class ModRecipes extends FabricRecipeProvider {
         for(BlockMaterial inputMaterial : BlockMaterial.values()) {
             for(BlockVariant inputVariant : BlockVariant.values()) {
 
-                ModBlocks.getBlock(inputMaterial, inputVariant, BlockShape.BLOCK).ifPresent(inputBlock -> {
+                ModBlocks.getBlock(inputMaterial, inputVariant, BlockShape.FULL_BLOCK).ifPresent(inputBlock -> {
                     for (BlockVariant outputVariant : BlockVariant.values()) {
                         if (validateStonecutterRecipe(outputVariant, inputMaterial, inputVariant))
                             createStonecutterShapesRecipes(exporter, inputMaterial, inputVariant, inputBlock, outputVariant);
@@ -56,7 +56,7 @@ public class ModRecipes extends FabricRecipeProvider {
     private static void createDarkVariantRecipes(Consumer<RecipeJsonProvider> exporter) {
 
         for(BlockMaterial material : BlockMaterial.values()) {
-            ModBlocks.getBlock(material, DARK, BlockShape.BLOCK).ifPresent(block ->
+            ModBlocks.getBlock(material, DARK, BlockShape.FULL_BLOCK).ifPresent(block ->
                     createShapelessRecipe(ModTags.Items.getTag(material), block.asItem(), exporter)
             );
         }
@@ -74,7 +74,7 @@ public class ModRecipes extends FabricRecipeProvider {
 
     private static void createStonecutterShapesRecipes(Consumer<RecipeJsonProvider> exporter, BlockMaterial inputMaterial, BlockVariant inputVariant, Block inputBlock, BlockVariant outputVariant) {
         for(BlockShape shape : BlockShape.values()) {
-            if(outputVariant == inputVariant && shape == BlockShape.BLOCK)
+            if(outputVariant == inputVariant && shape == BlockShape.FULL_BLOCK)
                 continue;
 
             if(outputVariant.hasShape(shape)) {

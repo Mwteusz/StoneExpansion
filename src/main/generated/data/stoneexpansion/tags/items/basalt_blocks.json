@@ -4,12 +4,12 @@
     "minecraft:basalt",
     "stoneexpansion:cobbled_basalt",
     "minecraft:smooth_basalt",
-    "stoneexpansion:cut_basalt",
     "stoneexpansion:polished_basalt",
     "stoneexpansion:chiseled_basalt",
-    "minecraft:polished_basalt",
+    "stoneexpansion:cut_basalt",
     "stoneexpansion:basalt_bricks",
     "stoneexpansion:cracked_basalt_bricks",
+    "minecraft:polished_basalt",
     "stoneexpansion:basalt_tiles"
   ]
 }

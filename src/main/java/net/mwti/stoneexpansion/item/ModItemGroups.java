@@ -28,7 +28,7 @@ public class ModItemGroups {
         StoneExpansion.LOGGER.info("Registering Item Groups for " + StoneExpansion.MOD_ID);
     }
     private static ItemStack getIcon(){
-        return new ItemStack(ModBlocks.getBlock(BlockMaterial.BRICKS, BlockVariant.TILES, BlockShape.BLOCK)
+        return new ItemStack(ModBlocks.getBlock(BlockMaterial.BRICKS, BlockVariant.TILES, BlockShape.FULL_BLOCK)
                 .orElseThrow(() -> new NoSuchElementException("this is bad")));
     }
 }

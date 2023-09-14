@@ -3,11 +3,12 @@
   "values": [
     "stoneexpansion:cobbled_quartz",
     "minecraft:smooth_quartz",
-    "stoneexpansion:cut_quartz",
     "minecraft:quartz_block",
     "minecraft:chiseled_quartz_block",
-    "minecraft:quartz_pillar",
+    "stoneexpansion:cut_quartz",
+    "minecraft:quartz_bricks",
     "stoneexpansion:cracked_quartz_bricks",
+    "minecraft:quartz_pillar",
     "stoneexpansion:quartz_tiles"
   ]
 }

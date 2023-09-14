@@ -1,4 +1,4 @@
-// 1.20.1	2023-09-14T00:06:35.8142204	Stone Expansion/Tags for minecraft:item
+// 1.20.1	2023-09-14T10:47:29.3033497	Stone Expansion/Tags for minecraft:item
 29bf589901bed4876a3af914580f604a50b1f118 data\stoneexpansion\tags\items\purpur_blocks.json
 8e5d367dbb6628777adafb8cde257f679e14c72c data\stoneexpansion\tags\items\basalt_blocks.json
 27b7ce7dec5a2abde2101ebe5a515ba3ebb6666b data\stoneexpansion\tags\items\mossy_stone_blocks.json
@@ -13,6 +13,6 @@ e6404b999dae21950396f7b073eec6ff9eabff2b data\stoneexpansion\tags\items\mud_bloc
 0ca6f19af46b624267aef8a972f199bba3990fb0 data\stoneexpansion\tags\items\stone_blocks.json
 c11f90dbf4a0f35dcbc1da85bafd1db1558e97dd data\stoneexpansion\tags\items\red_sandstone_blocks.json
 a527551b35c339949578efe92a59d45e7770e19a data\stoneexpansion\tags\items\prismarine_blocks.json
-cbda87f6cfa2d23e98613ac58c421ca6111361c8 data\stoneexpansion\tags\items\quartz_blocks.json
+68a96919d1d34900ec15c99520f6d0d4d9aad70c data\stoneexpansion\tags\items\quartz_blocks.json
 11609914fcc32cce9908d19a773777bc6ae56650 data\stoneexpansion\tags\items\bricks_blocks.json
 22af3970e0c0c2651c77cda736a04c56889fbf6f data\stoneexpansion\tags\items\end_stone_blocks.json

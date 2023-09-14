@@ -4,12 +4,12 @@
     "minecraft:red_sandstone",
     "stoneexpansion:cobbled_red_sandstone",
     "minecraft:smooth_red_sandstone",
-    "minecraft:cut_red_sandstone",
     "stoneexpansion:polished_red_sandstone",
     "minecraft:chiseled_red_sandstone",
-    "stoneexpansion:red_sandstone_pillar",
+    "minecraft:cut_red_sandstone",
     "stoneexpansion:red_sandstone_bricks",
     "stoneexpansion:cracked_red_sandstone_bricks",
+    "stoneexpansion:red_sandstone_pillar",
     "stoneexpansion:red_sandstone_tiles"
   ]
 }

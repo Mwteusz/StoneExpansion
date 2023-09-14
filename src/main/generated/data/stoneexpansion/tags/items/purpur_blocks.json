@@ -4,12 +4,12 @@
     "minecraft:purpur_block",
     "stoneexpansion:cobbled_purpur",
     "stoneexpansion:smooth_purpur",
-    "stoneexpansion:cut_purpur",
     "stoneexpansion:polished_purpur",
     "stoneexpansion:chiseled_purpur",
-    "minecraft:purpur_pillar",
+    "stoneexpansion:cut_purpur",
     "stoneexpansion:purpur_bricks",
     "stoneexpansion:cracked_purpur_bricks",
+    "minecraft:purpur_pillar",
     "stoneexpansion:purpur_tiles"
   ]
 }
