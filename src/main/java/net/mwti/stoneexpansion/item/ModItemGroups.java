@@ -21,7 +21,7 @@ public class ModItemGroups {
             new Identifier(StoneExpansion.MOD_ID,"stoneexpansion"), FabricItemGroup.builder()
                     .displayName(Text.translatable("itemGroup."+StoneExpansion.MOD_ID+".blocks"))
                     .icon(ModItemGroups::getIcon)
-                    .entries((((displayContext, entries) -> ModBlocks.getCreativeMenuBlocks(entries::add))))
+                    .entries((((displayContext, entries) -> ModBlocks.forEachBlock(entries::add))))
                     .build());
 
     public static void registerItemGroups() {
