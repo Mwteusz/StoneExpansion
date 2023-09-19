@@ -7,8 +7,10 @@ import net.minecraft.util.Identifier;
 import net.mwti.stoneexpansion.block.*;
 
 import static net.minecraft.data.client.BlockStateModelGenerator.*;
-import static net.mwti.stoneexpansion.block.BlockMaterial.BASALT;
+import static net.mwti.stoneexpansion.block.BlockMaterial.*;
 import static net.mwti.stoneexpansion.block.BlockShape.*;
+import static net.mwti.stoneexpansion.block.BlockVariant.BASE;
+import static net.mwti.stoneexpansion.block.BlockVariant.POLISHED;
 
 
 public class ModModels extends FabricModelProvider {
@@ -45,11 +47,11 @@ public class ModModels extends FabricModelProvider {
     private static void generateSlab(BlockMaterial material, BlockVariant variant, BlockStateModelGenerator modelGenerator) {
 
         ModBlocks.getModdedBlock(material, variant, SLAB).ifPresent(slabBlock ->
-                ModBlocks.getBlock(material, variant, BlockShape.BLOCK).ifPresent(block -> {
+                ModBlocks.getBlock(material, variant, BlockShape.FULL_BLOCK).ifPresent(block -> {
 
-                    TexturedModel texturedModel = variant.isCube() ?
-                            TexturedModel.CUBE_ALL.get(block) :
-                            TexturedModel.CUBE_COLUMN.get(block);
+                    TexturedModel texturedModel = variant.isColumn() ?
+                            TexturedModel.CUBE_COLUMN.get(block) :
+                            TexturedModel.CUBE_ALL.get(block);
                     Identifier fullBlockModel = ModelIds.getBlockModelId(block);
                     Identifier bottomModel = Models.SLAB.upload(slabBlock, texturedModel.getTextures(), modelGenerator.modelCollector);
                     Identifier topModel = Models.SLAB_TOP.upload(slabBlock, texturedModel.getTextures(), modelGenerator.modelCollector);
@@ -61,7 +63,7 @@ public class ModModels extends FabricModelProvider {
     private static void generateStairs(BlockMaterial material, BlockVariant variant, BlockStateModelGenerator modelGenerator) {
 
         ModBlocks.getModdedBlock(material, variant, BlockShape.STAIRS).ifPresent(stairsBlock ->
-            ModBlocks.getBlock(material, variant, BlockShape.BLOCK).ifPresent(block -> {
+            ModBlocks.getBlock(material, variant, BlockShape.FULL_BLOCK).ifPresent(block -> {
 
                 TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(block);
                 modelGenerator.new BlockTexturePool(texturedModel.getTextures())
@@ -73,7 +75,7 @@ public class ModModels extends FabricModelProvider {
     private static void generateWall(BlockMaterial material, BlockVariant variant, BlockStateModelGenerator modelGenerator) {
 
         ModBlocks.getModdedBlock(material, variant, WALL).ifPresent(wallBlock ->
-                ModBlocks.getBlock(material, variant, BlockShape.BLOCK).ifPresent(block -> {
+                ModBlocks.getBlock(material, variant, BlockShape.FULL_BLOCK).ifPresent(block -> {
 
                     TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(block);
                     modelGenerator.new BlockTexturePool(texturedModel.getTextures())
@@ -83,19 +85,19 @@ public class ModModels extends FabricModelProvider {
     }
 
     private static void generateCube(BlockMaterial material, BlockVariant variant, BlockStateModelGenerator modelGenerator) {
-        ModBlocks.getModdedBlock(material, variant, BLOCK).ifPresent(modelGenerator::registerCubeAllModelTexturePool);
+        ModBlocks.getModdedBlock(material, variant, FULL_BLOCK).ifPresent(modelGenerator::registerCubeAllModelTexturePool);
     }
 
     private static void generateCutBlock(BlockMaterial material, BlockStateModelGenerator modelGenerator) {
 
-        ModBlocks.getModdedBlock(material, BlockVariant.CUT, BLOCK).ifPresent(block ->
+        ModBlocks.getModdedBlock(material, BlockVariant.CUT, FULL_BLOCK).ifPresent(block ->
             modelGenerator.registerSingleton(block, TexturedModel.CUBE_COLUMN)
         );
     }
 
     private static void generatePillarBlock(BlockMaterial material, BlockStateModelGenerator modelGenerator) {
 
-        ModBlocks.getModdedBlock(material, BlockVariant.PILLAR, BLOCK).ifPresent(block ->
+        ModBlocks.getModdedBlock(material, BlockVariant.PILLAR, FULL_BLOCK).ifPresent(block ->
             modelGenerator.registerAxisRotated(block,
                     TexturedModel.END_FOR_TOP_CUBE_COLUMN,
                     TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL)
@@ -104,7 +106,7 @@ public class ModModels extends FabricModelProvider {
 
     private static void generateChiseledBlock(BlockMaterial material, BlockStateModelGenerator modelGenerator) {
 
-        ModBlocks.getModdedBlock(material, BlockVariant.CHISELED, BLOCK).ifPresent(block -> {
+        ModBlocks.getModdedBlock(material, BlockVariant.CHISELED, FULL_BLOCK).ifPresent(block -> {
 
             if (material == BASALT) {
                 modelGenerator.registerAxisRotated(block,
@@ -114,6 +116,13 @@ public class ModModels extends FabricModelProvider {
                 modelGenerator.registerSimpleCubeAll(block);
             }
         });
+    }
+
+    /* temporary fix */
+    public static boolean isModelBlacklisted(BlockMaterial material, BlockVariant variant, BlockShape shape) {
+        return      (variant == POLISHED    && material == QUARTZ       && shape == WALL)
+                ||  (variant == BASE        && material == BASALT       && shape != FULL_BLOCK)
+                ||  (variant == BASE        && material == DEEPSLATE    && shape != FULL_BLOCK);
     }
 
 

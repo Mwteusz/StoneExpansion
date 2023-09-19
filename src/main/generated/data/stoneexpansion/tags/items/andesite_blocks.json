@@ -2,13 +2,14 @@
   "replace": false,
   "values": [
     "minecraft:andesite",
+    "stoneexpansion:cobbled_andesite",
     "stoneexpansion:smooth_andesite",
-    "stoneexpansion:cut_andesite",
     "minecraft:polished_andesite",
     "stoneexpansion:chiseled_andesite",
-    "stoneexpansion:andesite_pillar",
+    "stoneexpansion:cut_andesite",
     "stoneexpansion:andesite_bricks",
     "stoneexpansion:cracked_andesite_bricks",
+    "stoneexpansion:andesite_pillar",
     "stoneexpansion:andesite_tiles"
   ]
 }

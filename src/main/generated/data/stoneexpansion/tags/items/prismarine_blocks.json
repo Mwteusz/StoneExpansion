@@ -3,12 +3,12 @@
   "values": [
     "minecraft:prismarine",
     "stoneexpansion:smooth_prismarine",
-    "stoneexpansion:cut_prismarine",
     "stoneexpansion:polished_prismarine",
     "stoneexpansion:chiseled_prismarine",
-    "stoneexpansion:prismarine_pillar",
+    "stoneexpansion:cut_prismarine",
     "minecraft:prismarine_bricks",
     "stoneexpansion:cracked_prismarine_bricks",
+    "stoneexpansion:prismarine_pillar",
     "stoneexpansion:prismarine_tiles"
   ]
 }

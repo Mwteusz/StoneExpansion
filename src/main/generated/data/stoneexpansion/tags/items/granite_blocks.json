@@ -2,13 +2,14 @@
   "replace": false,
   "values": [
     "minecraft:granite",
+    "stoneexpansion:cobbled_granite",
     "stoneexpansion:smooth_granite",
-    "stoneexpansion:cut_granite",
     "minecraft:polished_granite",
     "stoneexpansion:chiseled_granite",
-    "stoneexpansion:granite_pillar",
+    "stoneexpansion:cut_granite",
     "stoneexpansion:granite_bricks",
     "stoneexpansion:cracked_granite_bricks",
+    "stoneexpansion:granite_pillar",
     "stoneexpansion:granite_tiles"
   ]
 }

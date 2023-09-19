@@ -2,13 +2,14 @@
   "replace": false,
   "values": [
     "minecraft:end_stone",
+    "stoneexpansion:cobbled_end_stone",
     "stoneexpansion:smooth_end_stone",
-    "stoneexpansion:cut_end_stone",
     "stoneexpansion:polished_end_stone",
     "stoneexpansion:chiseled_end_stone",
-    "stoneexpansion:end_stone_pillar",
+    "stoneexpansion:cut_end_stone",
     "minecraft:end_stone_bricks",
     "stoneexpansion:cracked_end_stone_bricks",
+    "stoneexpansion:end_stone_pillar",
     "stoneexpansion:end_stone_tiles"
   ]
 }

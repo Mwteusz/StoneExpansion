@@ -2,13 +2,14 @@
   "replace": false,
   "values": [
     "minecraft:packed_mud",
+    "stoneexpansion:cobbled_mud",
     "stoneexpansion:smooth_mud",
-    "stoneexpansion:cut_mud",
     "stoneexpansion:polished_mud",
     "stoneexpansion:chiseled_mud",
-    "stoneexpansion:mud_pillar",
+    "stoneexpansion:cut_mud",
     "minecraft:mud_bricks",
     "stoneexpansion:cracked_mud_bricks",
+    "stoneexpansion:mud_pillar",
     "stoneexpansion:mud_tiles"
   ]
 }

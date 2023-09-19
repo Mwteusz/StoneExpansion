@@ -21,14 +21,14 @@ public class ModItemGroups {
             new Identifier(StoneExpansion.MOD_ID,"stoneexpansion"), FabricItemGroup.builder()
                     .displayName(Text.translatable("itemGroup."+StoneExpansion.MOD_ID+".blocks"))
                     .icon(ModItemGroups::getIcon)
-                    .entries((((displayContext, entries) -> ModBlocks.getCreativeMenuBlocks(entries::add))))
+                    .entries((((displayContext, entries) -> ModBlocks.forEachBlock(entries::add))))
                     .build());
 
     public static void registerItemGroups() {
         StoneExpansion.LOGGER.info("Registering Item Groups for " + StoneExpansion.MOD_ID);
     }
     private static ItemStack getIcon(){
-        return new ItemStack(ModBlocks.getBlock(BlockMaterial.BRICKS, BlockVariant.TILES, BlockShape.BLOCK)
+        return new ItemStack(ModBlocks.getBlock(BlockMaterial.BRICKS, BlockVariant.TILES, BlockShape.FULL_BLOCK)
                 .orElseThrow(() -> new NoSuchElementException("this is bad")));
     }
 }

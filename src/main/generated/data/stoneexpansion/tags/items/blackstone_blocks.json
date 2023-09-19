@@ -2,13 +2,14 @@
   "replace": false,
   "values": [
     "minecraft:blackstone",
+    "stoneexpansion:cobbled_blackstone",
     "stoneexpansion:smooth_blackstone",
-    "stoneexpansion:cut_blackstone",
     "minecraft:polished_blackstone",
     "minecraft:chiseled_polished_blackstone",
-    "stoneexpansion:blackstone_pillar",
+    "stoneexpansion:cut_blackstone",
     "minecraft:polished_blackstone_bricks",
     "minecraft:cracked_polished_blackstone_bricks",
+    "stoneexpansion:blackstone_pillar",
     "stoneexpansion:blackstone_tiles"
   ]
 }
