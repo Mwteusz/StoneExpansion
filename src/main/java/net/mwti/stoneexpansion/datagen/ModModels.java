@@ -7,8 +7,7 @@ import net.minecraft.util.Identifier;
 import net.mwti.stoneexpansion.block.*;
 
 import static net.minecraft.data.client.BlockStateModelGenerator.*;
-import static net.mwti.stoneexpansion.block.BlockMaterial.BASALT;
-import static net.mwti.stoneexpansion.block.BlockMaterial.QUARTZ;
+import static net.mwti.stoneexpansion.block.BlockMaterial.*;
 import static net.mwti.stoneexpansion.block.BlockShape.*;
 import static net.mwti.stoneexpansion.block.BlockVariant.BASE;
 import static net.mwti.stoneexpansion.block.BlockVariant.POLISHED;
@@ -50,9 +49,9 @@ public class ModModels extends FabricModelProvider {
         ModBlocks.getModdedBlock(material, variant, SLAB).ifPresent(slabBlock ->
                 ModBlocks.getBlock(material, variant, BlockShape.FULL_BLOCK).ifPresent(block -> {
 
-                    TexturedModel texturedModel = variant.isCube() ?
-                            TexturedModel.CUBE_ALL.get(block) :
-                            TexturedModel.CUBE_COLUMN.get(block);
+                    TexturedModel texturedModel = variant.isColumn() ?
+                            TexturedModel.CUBE_COLUMN.get(block) :
+                            TexturedModel.CUBE_ALL.get(block);
                     Identifier fullBlockModel = ModelIds.getBlockModelId(block);
                     Identifier bottomModel = Models.SLAB.upload(slabBlock, texturedModel.getTextures(), modelGenerator.modelCollector);
                     Identifier topModel = Models.SLAB_TOP.upload(slabBlock, texturedModel.getTextures(), modelGenerator.modelCollector);
@@ -121,8 +120,9 @@ public class ModModels extends FabricModelProvider {
 
     /* temporary fix */
     public static boolean isModelBlacklisted(BlockMaterial material, BlockVariant variant, BlockShape shape) {
-        return (variant == POLISHED && material == QUARTZ && shape == WALL)
-                || (variant == BASE && material == BASALT && (shape == WALL || shape == SLAB));
+        return      (variant == POLISHED    && material == QUARTZ       && shape == WALL)
+                ||  (variant == BASE        && material == BASALT       && shape != FULL_BLOCK)
+                ||  (variant == BASE        && material == DEEPSLATE    && shape != FULL_BLOCK);
     }
 
 
