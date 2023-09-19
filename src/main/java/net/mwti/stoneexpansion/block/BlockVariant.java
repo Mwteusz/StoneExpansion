@@ -36,7 +36,7 @@ public enum BlockVariant {
 
     private final boolean isColumn;
     private final boolean[] allowedShapes = new boolean[BlockShape.values().length];
-    private Function<BlockMaterial,String> createName = material -> this.name() + "_" + material;
+    private Function<BlockMaterial,String> namingPattern = material -> this.name() + "_" + material;
 
     BlockVariant(boolean isColumn, List<BlockShape> allowedShapes) {
         this.isColumn = isColumn;
@@ -45,9 +45,9 @@ public enum BlockVariant {
         }
     }
 
-    BlockVariant(boolean isColumn, List<BlockShape> allowedShapes, Function<BlockMaterial,String> createName) {
+    BlockVariant(boolean isColumn, List<BlockShape> allowedShapes, Function<BlockMaterial,String> namingPattern) {
         this(isColumn, allowedShapes);
-        this.createName = createName;
+        this.namingPattern = namingPattern;
     }
 
 
@@ -63,7 +63,7 @@ public enum BlockVariant {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(createName.apply(material));
+        stringBuilder.append(namingPattern.apply(material));
 
         if(shape != FULL_BLOCK) {
             if(stringBuilder.toString().endsWith("S"))
