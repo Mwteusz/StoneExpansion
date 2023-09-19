@@ -13,6 +13,7 @@ public enum BlockMaterial {
     RED_SANDSTONE,
     PRISMARINE,
     NETHER_BRICKS(true),
+    RED_NETHER_BRICKS(true),
     BASALT,
     BLACKSTONE,
     END_STONE,

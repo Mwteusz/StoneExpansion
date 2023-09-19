@@ -213,6 +213,18 @@ public class ModBlocks {
         register(DARK, NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.NETHER_BRICKS)));
         register(NETHER_BRICKS, TILES, new Block(FabricBlockSettings.copyOf(Blocks.NETHER_BRICKS)));
 
+        // Base variant is the same as Brick variant
+        register(COBBLED, RED_NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
+        register(SMOOTH, RED_NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
+        register(CUT, RED_NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
+        register(POLISHED, RED_NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
+        register(CHISELED, RED_NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
+        register(RED_NETHER_BRICKS, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
+        add(RED_NETHER_BRICKS, BlockVariant.BRICKS, new ShapedBlocks(Blocks.RED_NETHER_BRICKS).add(SLAB, Blocks.RED_NETHER_BRICK_SLAB).add(STAIRS, Blocks.RED_NETHER_BRICK_STAIRS).add(WALL, Blocks.RED_NETHER_BRICK_WALL));
+        register(CRACKED_BRICKS, RED_NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
+        register(DARK, RED_NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
+        register(RED_NETHER_BRICKS, TILES, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
+
         // Base variant is the same as Polished variant
         register(COBBLED, QUARTZ, new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK)));
         add(SMOOTH, QUARTZ, new ShapedBlocks(Blocks.SMOOTH_QUARTZ).add(STAIRS, Blocks.SMOOTH_QUARTZ_STAIRS).add(SLAB, Blocks.SMOOTH_QUARTZ_SLAB));

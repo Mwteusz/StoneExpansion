@@ -63,16 +63,14 @@ public enum BlockVariant {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        if(toString().contains(material.name()))
-            stringBuilder.append(name());
-        else
-            stringBuilder.append(createName.apply(material));
+        stringBuilder.append(createName.apply(material));
 
         if(shape != FULL_BLOCK) {
             if(stringBuilder.toString().endsWith("S"))
                 stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             stringBuilder.append("_").append(shape);
         }
-        return stringBuilder.toString().toLowerCase();
+        return stringBuilder.toString().toLowerCase()
+                .replace("brick_brick","brick");
     }
 }
