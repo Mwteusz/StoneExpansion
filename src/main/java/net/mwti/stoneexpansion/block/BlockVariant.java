@@ -6,20 +6,20 @@ import java.util.function.Function;
 import static net.mwti.stoneexpansion.block.BlockShape.*;
 
 public enum BlockVariant {
-    BASE(false, List.of(BlockShape.values()),
+    BASE(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL),
             material -> material.toString()),
 
-    COBBLED(false, List.of(BlockShape.values())),
+    COBBLED(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL)),
 
     SMOOTH(false, List.of(FULL_BLOCK, STAIRS, SLAB)),
 
-    POLISHED(false, List.of(BlockShape.values())),
+    POLISHED(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL)),
 
     CHISELED(true, List.of(FULL_BLOCK)),
 
     CUT(true, List.of(FULL_BLOCK, SLAB)),
 
-    BRICKS(false, List.of(BlockShape.values()),
+    BRICKS(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL),
             material -> material.getSingular() + "_BRICKS"),
 
     CRACKED_BRICKS(false, List.of(FULL_BLOCK, SLAB),
@@ -28,26 +28,24 @@ public enum BlockVariant {
     PILLAR(true, List.of(FULL_BLOCK),
             material -> material.getSingular() + "_PILLAR"),
 
-    TILES(false, List.of(BlockShape.values()),
+    TILES(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL),
             material -> material.getSingular() + "_TILES"),
 
-    DARK(false, List.of(BlockShape.values()));
+    DARK(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL));
 
 
     private final boolean isColumn;
     private final boolean[] allowedShapes = new boolean[BlockShape.values().length];
-    private Function<BlockMaterial,String> namingPattern = material -> this.name() + "_" + material;
+    private Function<BlockMaterial, String> namingPattern = material -> this.name() + "_" + material;
 
     BlockVariant(boolean isColumn, List<BlockShape> allowedShapes) {
         this.isColumn = isColumn;
-        for (BlockShape shape : allowedShapes) {
-            this.allowedShapes[shape.ordinal()] = true;
-        }
+        allowedShapes.forEach(shape -> this.allowedShapes[shape.ordinal()] = true);
     }
 
-    BlockVariant(boolean isColumn, List<BlockShape> allowedShapes, Function<BlockMaterial,String> namingPattern) {
+    BlockVariant(boolean isColumn, List<BlockShape> allowedShapes, Function<BlockMaterial, String> customNamingPattern) {
         this(isColumn, allowedShapes);
-        this.namingPattern = namingPattern;
+        this.namingPattern = customNamingPattern;
     }
 
 

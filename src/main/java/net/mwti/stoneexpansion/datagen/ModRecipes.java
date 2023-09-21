@@ -63,12 +63,19 @@ public class ModRecipes extends FabricRecipeProvider {
     }
 
     private static boolean validateStonecutterRecipe(BlockVariant outputVariant, BlockMaterial inputMaterial, BlockVariant inputVariant) {
-        if(outputVariant == BASE) //you cannot craft back into a base block
-            return false;
+
         if(inputMaterial == PRISMARINE && inputVariant == BASE) //prismarine bricks are more expensive to craft in vanilla, so base block cannot be used
             return false;
         if(outputVariant == DARK ^ inputVariant == DARK) //dark variant stonecutter recipes are separated from the rest
             return false;
+
+        //you cannot craft back into a base block, with some exceptions
+        if(outputVariant == BASE
+                && inputMaterial != MOSSY_STONE
+                && inputMaterial != PURPUR
+                && inputMaterial != SMOOTHSTONE)
+            return false;
+
         return true;
     }
 

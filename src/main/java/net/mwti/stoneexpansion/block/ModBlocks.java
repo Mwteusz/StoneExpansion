@@ -83,7 +83,7 @@ public class ModBlocks {
 
         add(BASE, STONE, new ShapedBlocks(Blocks.STONE).add(STAIRS, Blocks.STONE_STAIRS).add(SLAB, Blocks.STONE_SLAB));
         add(COBBLED, STONE, new ShapedBlocks(Blocks.COBBLESTONE).add(STAIRS, Blocks.COBBLESTONE_STAIRS).add(SLAB, Blocks.COBBLESTONE_SLAB).add(WALL, Blocks.COBBLESTONE_WALL));
-        register(SMOOTH, STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        // Smoothstone is separated into its own material! Also, this "smooth stone" would look not much different from stone, so there's no point
         register(CUT, STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
         register(POLISHED, STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
         add(CHISELED, STONE, Blocks.CHISELED_STONE_BRICKS);
@@ -93,23 +93,35 @@ public class ModBlocks {
         register(DARK, STONE, new Block(FabricBlockSettings.copyOf(Blocks.STONE_BRICKS)));
         register(STONE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.STONE_BRICKS)));
 
-        // Mossy stone has no base
+        register(BASE, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
         add(COBBLED, MOSSY_STONE, new ShapedBlocks(Blocks.MOSSY_COBBLESTONE).add(STAIRS, Blocks.MOSSY_COBBLESTONE_STAIRS).add(SLAB, Blocks.MOSSY_COBBLESTONE_SLAB).add(WALL, Blocks.MOSSY_COBBLESTONE_WALL));
-        register(SMOOTH, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
-        register(CUT, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
-        register(POLISHED, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
-        register(CHISELED, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
-        register(MOSSY_STONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        // "smooth mossy stone" would look not much different from mossy stone, so there's no point
+        register(CUT, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
+        register(POLISHED, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
+        register(CHISELED, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
+        register(MOSSY_STONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
         add(MOSSY_STONE, BlockVariant.BRICKS, new ShapedBlocks(Blocks.MOSSY_STONE_BRICKS).add(STAIRS, Blocks.MOSSY_STONE_BRICK_STAIRS).add(SLAB, Blocks.MOSSY_STONE_BRICK_SLAB).add(WALL, Blocks.MOSSY_STONE_BRICK_WALL));
         register(CRACKED_BRICKS, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
         register(DARK, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
         register(MOSSY_STONE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
 
-        add(BASE, END_STONE,Blocks.END_STONE);
+        add(BASE, SMOOTHSTONE, new ShapedBlocks(Blocks.SMOOTH_STONE).add(SLAB, Blocks.SMOOTH_STONE_SLAB));
+        register(COBBLED, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(SMOOTH, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(CUT, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(POLISHED, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(CHISELED, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(SMOOTHSTONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(SMOOTHSTONE, BlockVariant.BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(CRACKED_BRICKS, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(DARK, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(SMOOTHSTONE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+
+        add(BASE, END_STONE, Blocks.END_STONE);
         register(COBBLED, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE)));
-        register(SMOOTH, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE)));
-        register(CUT, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE)));
-        register(POLISHED, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE)));
+        register(SMOOTH, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
+        register(CUT, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
+        register(POLISHED, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
         register(CHISELED, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
         register(END_STONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
         add(END_STONE, BlockVariant.BRICKS, new ShapedBlocks(Blocks.END_STONE_BRICKS).add(STAIRS, Blocks.END_STONE_BRICK_STAIRS).add(SLAB, Blocks.END_STONE_BRICK_SLAB).add(WALL, Blocks.END_STONE_BRICK_WALL));
@@ -305,10 +317,10 @@ public class ModBlocks {
         if(ModModels.isModelBlacklisted(material,variant,shape))
             return;
         Block shapedBlock = shape.newShapedBlock(block);
-        String name = getBlockName(material, variant, shape);
+        String blockName = getBlockName(material, variant, shape);
         setBlock(material, variant, shape, shapedBlock);
-        registerBlockItem(name, shapedBlock);
-        Registry.register(Registries.BLOCK, new Identifier(StoneExpansion.MOD_ID, name), shapedBlock);
+        registerBlockItem(blockName, shapedBlock);
+        Registry.register(Registries.BLOCK, new Identifier(StoneExpansion.MOD_ID, blockName), shapedBlock);
     }
 
     static void registerBlockItem(String name, Block block) {

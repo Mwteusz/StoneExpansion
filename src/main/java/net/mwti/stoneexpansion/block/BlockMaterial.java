@@ -2,6 +2,7 @@ package net.mwti.stoneexpansion.block;
 
 public enum BlockMaterial {
     STONE,
+    SMOOTHSTONE,
     MOSSY_STONE,
     GRANITE,
     DIORITE,
@@ -35,7 +36,7 @@ public enum BlockMaterial {
     }
 
     public String getSingular() {
-        return plural
+        return isPlural()
                 ? this.name().substring(0, this.name().length() - 1)
                 : this.name();
     }

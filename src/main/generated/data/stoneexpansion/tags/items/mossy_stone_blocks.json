@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
+    "stoneexpansion:mossy_stone",
     "minecraft:mossy_cobblestone",
-    "stoneexpansion:smooth_mossy_stone",
     "stoneexpansion:polished_mossy_stone",
     "stoneexpansion:chiseled_mossy_stone",
     "stoneexpansion:cut_mossy_stone",
