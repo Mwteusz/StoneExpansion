@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "stoneexpansion:block/cut_mud_top",
-    "side": "stoneexpansion:block/cut_mud_side"
-  }
-}

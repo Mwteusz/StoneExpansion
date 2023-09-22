@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "stoneexpansion:block/chiseled_basalt_top",
-    "side": "stoneexpansion:block/chiseled_basalt"
-  }
-}

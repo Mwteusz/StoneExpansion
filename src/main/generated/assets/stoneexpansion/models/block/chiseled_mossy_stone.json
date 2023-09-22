@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "stoneexpansion:block/chiseled_mossy_stone"
-  }
-}

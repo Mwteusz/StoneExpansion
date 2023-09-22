@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "stoneexpansion:block/mossy_stone_pillar_top",
-    "side": "stoneexpansion:block/mossy_stone_pillar"
-  }
-}

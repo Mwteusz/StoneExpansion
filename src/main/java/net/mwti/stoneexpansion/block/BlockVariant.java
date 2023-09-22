@@ -5,24 +5,22 @@ import java.util.Arrays;
 import static net.mwti.stoneexpansion.block.BlockShape.*;
 
 public enum BlockVariant {
-    BASE(false, "[materialPlural]", STAIRS, SLAB, WALL),
-    COBBLED(false, "[variant]_[materialPlural]", STAIRS, SLAB, WALL),
-    SMOOTH(false, "[variant]_[materialPlural]", STAIRS, SLAB),
-    POLISHED(false, "[variant]_[materialPlural]", STAIRS, SLAB, WALL),
-    CUT(true, "[variant]_[materialPlural]", SLAB),
-    CHISELED(true, "[variant]_[materialPlural]"),
-    BRICKS(false, "[materialSingular]_[variant]", STAIRS, SLAB, WALL),
-    CRACKED_BRICKS(false, "CRACKED_[materialSingular]_BRICKS", SLAB),
-    PILLAR(true, "[materialSingular]_[variant]"),
-    TILES(false, "[materialSingular]_[variant]", STAIRS, SLAB, WALL),
-    DARK(false, "[variant]_[materialPlural]", STAIRS, SLAB, WALL);
+    BASE("[materialPlural]", STAIRS, SLAB, WALL),
+    COBBLED("[variant]_[materialPlural]", STAIRS, SLAB, WALL),
+    SMOOTH("[variant]_[materialPlural]", STAIRS, SLAB),
+    POLISHED("[variant]_[materialPlural]", STAIRS, SLAB, WALL),
+    CUT("[variant]_[materialPlural]", SLAB),
+    CHISELED("[variant]_[materialPlural]"),
+    BRICKS("[materialSingular]_[variant]", STAIRS, SLAB, WALL),
+    CRACKED_BRICKS("CRACKED_[materialSingular]_BRICKS", SLAB),
+    PILLAR("[materialSingular]_[variant]"),
+    TILES("[materialSingular]_[variant]", STAIRS, SLAB, WALL),
+    DARK("[variant]_[materialPlural]", STAIRS, SLAB, WALL);
 
     private final boolean[] allowedShapes = new boolean[BlockShape.values().length - 1]; // less 1 because FULL_BLOCK is always true
-    private final boolean useColumnModel;
     private final String namingPattern;
 
-    BlockVariant(boolean useColumnModel, String namingPattern, BlockShape... allowedShapes) {
-        this.useColumnModel = useColumnModel;
+    BlockVariant(String namingPattern, BlockShape... allowedShapes) {
         this.namingPattern = namingPattern;
         Arrays.stream(allowedShapes).forEach(this::allowShape);
     }
@@ -35,10 +33,6 @@ public enum BlockVariant {
         if(shape == FULL_BLOCK)
             return true;
         return allowedShapes[shape.ordinal() - 1];
-    }
-
-    public boolean usesColumnModel() {
-        return useColumnModel;
     }
 
     public String createName(BlockMaterial material, BlockShape shape) {
