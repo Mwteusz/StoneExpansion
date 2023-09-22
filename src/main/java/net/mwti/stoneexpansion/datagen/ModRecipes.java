@@ -57,7 +57,7 @@ public class ModRecipes extends FabricRecipeProvider {
 
         for(BlockMaterial material : BlockMaterial.values()) {
             ModBlocks.getBlock(material, DARK, BlockShape.FULL_BLOCK).ifPresent(block ->
-                    createShapelessRecipe(ModTags.Items.getTag(material), block.asItem(), exporter)
+                    createShapelessDarkRecipe(ModTags.Items.getTag(material), block.asItem(), exporter)
             );
         }
     }
@@ -68,14 +68,8 @@ public class ModRecipes extends FabricRecipeProvider {
             return false;
         if(outputVariant == DARK ^ inputVariant == DARK) //dark variant stonecutter recipes are separated from the rest
             return false;
-
-        //you cannot craft back into a base block, with some exceptions
-        if(outputVariant == BASE
-                && inputMaterial != MOSSY_STONE
-                && inputMaterial != PURPUR
-                && inputMaterial != SMOOTHSTONE)
+        if(outputVariant == BASE && !inputMaterial.isBaseCraftable())
             return false;
-
         return true;
     }
 
@@ -93,7 +87,7 @@ public class ModRecipes extends FabricRecipeProvider {
         }
     }
 
-    private static void createShapelessRecipe(TagKey<Item> inputs, Item output, Consumer<RecipeJsonProvider> exporter) {
+    private static void createShapelessDarkRecipe(TagKey<Item> inputs, Item output, Consumer<RecipeJsonProvider> exporter) {
         new ShapelessRecipeJsonBuilder(RecipeCategory.BUILDING_BLOCKS, output, 1)
                 .input(Ingredient.fromTag(inputs))
                 .input(Items.BLACK_DYE)

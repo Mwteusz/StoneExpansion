@@ -49,7 +49,7 @@ public class ModModels extends FabricModelProvider {
         ModBlocks.getModdedBlock(material, variant, SLAB).ifPresent(slabBlock ->
                 ModBlocks.getBlock(material, variant, BlockShape.FULL_BLOCK).ifPresent(block -> {
 
-                    TexturedModel texturedModel = variant.isColumn() ?
+                    TexturedModel texturedModel = variant.usesColumnModel() ?
                             TexturedModel.CUBE_COLUMN.get(block) :
                             TexturedModel.CUBE_ALL.get(block);
                     Identifier fullBlockModel = ModelIds.getBlockModelId(block);

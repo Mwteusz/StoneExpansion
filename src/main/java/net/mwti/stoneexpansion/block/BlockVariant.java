@@ -1,74 +1,65 @@
 package net.mwti.stoneexpansion.block;
 
-import java.util.List;
-import java.util.function.Function;
+import java.util.Arrays;
 
 import static net.mwti.stoneexpansion.block.BlockShape.*;
 
 public enum BlockVariant {
-    BASE(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL),
-            material -> material.toString()),
+    BASE(false, "[materialPlural]", STAIRS, SLAB, WALL),
+    COBBLED(false, "[variant]_[materialPlural]", STAIRS, SLAB, WALL),
+    SMOOTH(false, "[variant]_[materialPlural]", STAIRS, SLAB),
+    POLISHED(false, "[variant]_[materialPlural]", STAIRS, SLAB, WALL),
+    CUT(true, "[variant]_[materialPlural]", SLAB),
+    CHISELED(true, "[variant]_[materialPlural]"),
+    BRICKS(false, "[materialSingular]_[variant]", STAIRS, SLAB, WALL),
+    CRACKED_BRICKS(false, "CRACKED_[materialSingular]_BRICKS", SLAB),
+    PILLAR(true, "[materialSingular]_[variant]"),
+    TILES(false, "[materialSingular]_[variant]", STAIRS, SLAB, WALL),
+    DARK(false, "[variant]_[materialPlural]", STAIRS, SLAB, WALL);
 
-    COBBLED(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL)),
+    private final boolean[] allowedShapes = new boolean[BlockShape.values().length - 1]; // less 1 because FULL_BLOCK is always true
+    private final boolean useColumnModel;
+    private final String namingPattern;
 
-    SMOOTH(false, List.of(FULL_BLOCK, STAIRS, SLAB)),
-
-    POLISHED(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL)),
-
-    CHISELED(true, List.of(FULL_BLOCK)),
-
-    CUT(true, List.of(FULL_BLOCK, SLAB)),
-
-    BRICKS(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL),
-            material -> material.getSingular() + "_BRICKS"),
-
-    CRACKED_BRICKS(false, List.of(FULL_BLOCK, SLAB),
-            material ->  "CRACKED_" + material.getSingular() + "_BRICKS"),
-
-    PILLAR(true, List.of(FULL_BLOCK),
-            material -> material.getSingular() + "_PILLAR"),
-
-    TILES(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL),
-            material -> material.getSingular() + "_TILES"),
-
-    DARK(false, List.of(FULL_BLOCK, STAIRS, SLAB, WALL));
-
-
-    private final boolean isColumn;
-    private final boolean[] allowedShapes = new boolean[BlockShape.values().length];
-    private Function<BlockMaterial, String> namingPattern = material -> this.name() + "_" + material;
-
-    BlockVariant(boolean isColumn, List<BlockShape> allowedShapes) {
-        this.isColumn = isColumn;
-        allowedShapes.forEach(shape -> this.allowedShapes[shape.ordinal()] = true);
+    BlockVariant(boolean useColumnModel, String namingPattern, BlockShape... allowedShapes) {
+        this.useColumnModel = useColumnModel;
+        this.namingPattern = namingPattern;
+        Arrays.stream(allowedShapes).forEach(this::allowShape);
     }
 
-    BlockVariant(boolean isColumn, List<BlockShape> allowedShapes, Function<BlockMaterial, String> customNamingPattern) {
-        this(isColumn, allowedShapes);
-        this.namingPattern = customNamingPattern;
+    private void allowShape(BlockShape shape) {
+        this.allowedShapes[shape.ordinal() - 1] = true;
     }
-
 
     public boolean hasShape(BlockShape shape) {
-        return allowedShapes[shape.ordinal()];
+        if(shape == FULL_BLOCK)
+            return true;
+        return allowedShapes[shape.ordinal() - 1];
     }
 
-    public boolean isColumn() {
-        return isColumn;
+    public boolean usesColumnModel() {
+        return useColumnModel;
     }
 
     public String createName(BlockMaterial material, BlockShape shape) {
 
-        StringBuilder stringBuilder = new StringBuilder();
-
-        stringBuilder.append(namingPattern.apply(material));
+        String nameFromPattern = this.applyNamingPattern(material);
+        StringBuilder stringBuilder = new StringBuilder(nameFromPattern);
 
         if(shape != FULL_BLOCK) {
-            if(stringBuilder.toString().endsWith("S"))
+            if(nameFromPattern.endsWith("S"))
                 stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             stringBuilder.append("_").append(shape);
         }
         return stringBuilder.toString().toLowerCase()
                 .replace("brick_brick","brick");
+    }
+
+    private String applyNamingPattern(BlockMaterial material) {
+
+        return namingPattern
+                .replace("[materialPlural]", material.name())
+                .replace("[materialSingular]", material.getSingular())
+                .replace("[variant]", this.name());
     }
 }

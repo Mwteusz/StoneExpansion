@@ -23,16 +23,15 @@ public class ModLang extends FabricLanguageProvider {
             for(BlockVariant variant : BlockVariant.values()) {
                 for(BlockShape shape : BlockShape.values()) {
                     ModBlocks.getModdedBlock(material, variant, shape).ifPresent(block ->
-                        translationBuilder.add(block, translateKeyToEnglish(block.getTranslationKey()))
+                        translationBuilder.add(block, translateKeyToEnglish("block." + MOD_ID + ".", block.getTranslationKey()))
                     );
                 }
             }
         }
     }
 
-    private static String translateKeyToEnglish(String key){
-        String prefix = "block." + MOD_ID + ".";
-        String[] parts = key.replace(prefix,"").split("_");
+    private static String translateKeyToEnglish(String prefix, String key){
+        String[] parts = key.substring(prefix.length()).split("_");
         StringBuilder result = new StringBuilder();
 
         for (String part : parts) {
