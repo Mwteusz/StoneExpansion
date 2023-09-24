@@ -82,7 +82,7 @@ public class ModBlocks {
 
         add(BASE, STONE, new BlockFamily(Blocks.STONE).stairs(Blocks.STONE_STAIRS).slab(Blocks.STONE_SLAB));
         add(COBBLED, STONE, new BlockFamily(Blocks.COBBLESTONE).stairs(Blocks.COBBLESTONE_STAIRS).slab(Blocks.COBBLESTONE_SLAB).wall(Blocks.COBBLESTONE_WALL));
-        // Smoothstone is separated into its own material! Also, this "smooth stone" would look not much different from stone, so there's no point
+        register(SMOOTH, STONE, new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
         register(CUT, STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
         register(POLISHED, STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
         add(CHISELED, STONE, Blocks.CHISELED_STONE_BRICKS);
@@ -92,9 +92,9 @@ public class ModBlocks {
         register(DARK, STONE, new Block(FabricBlockSettings.copyOf(Blocks.STONE_BRICKS)));
         register(STONE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.STONE_BRICKS)));
 
-        register(BASE, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
+        register(BASE, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_COBBLESTONE)));
         add(COBBLED, MOSSY_STONE, new BlockFamily(Blocks.MOSSY_COBBLESTONE).stairs(Blocks.MOSSY_COBBLESTONE_STAIRS).slab(Blocks.MOSSY_COBBLESTONE_SLAB).wall(Blocks.MOSSY_COBBLESTONE_WALL));
-        // "smooth mossy stone" would look not much different from mossy stone, so there's no point
+        register(SMOOTH, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
         register(CUT, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
         register(POLISHED, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
         register(CHISELED, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
