@@ -1,76 +1,59 @@
 package net.mwti.stoneexpansion.block;
 
-import java.util.List;
-import java.util.function.Function;
+import java.util.Arrays;
 
 import static net.mwti.stoneexpansion.block.BlockShape.*;
 
 public enum BlockVariant {
-    BASE(false, List.of(BlockShape.values()),
-            material -> material.toString()),
+    BASE("[materialPlural]", STAIRS, SLAB, WALL),
+    COBBLED("[variant]_[materialPlural]", STAIRS, SLAB, WALL),
+    SMOOTH("[variant]_[materialPlural]", STAIRS, SLAB),
+    POLISHED("[variant]_[materialPlural]", STAIRS, SLAB, WALL),
+    CUT("[variant]_[materialPlural]", SLAB),
+    CHISELED("[variant]_[materialPlural]"),
+    BRICKS("[materialSingular]_[variant]", STAIRS, SLAB, WALL),
+    CRACKED_BRICKS("CRACKED_[materialSingular]_BRICKS", SLAB),
+    PILLAR("[materialSingular]_[variant]"),
+    TILES("[materialSingular]_[variant]", STAIRS, SLAB, WALL),
+    DARK("[variant]_[materialPlural]", STAIRS, SLAB, WALL);
 
-    COBBLED(false, List.of(BlockShape.values())),
+    private final boolean[] allowedShapes = new boolean[BlockShape.values().length - 1]; // less 1 because FULL_BLOCK is always true
+    private final String namingPattern;
 
-    SMOOTH(false, List.of(FULL_BLOCK, STAIRS, SLAB)),
-
-    POLISHED(false, List.of(BlockShape.values())),
-
-    CHISELED(true, List.of(FULL_BLOCK)),
-
-    CUT(true, List.of(FULL_BLOCK, SLAB)),
-
-    BRICKS(false, List.of(BlockShape.values()),
-            material -> material.getSingular() + "_BRICKS"),
-
-    CRACKED_BRICKS(false, List.of(FULL_BLOCK, SLAB),
-            material ->  "CRACKED_" + material.getSingular() + "_BRICKS"),
-
-    PILLAR(true, List.of(FULL_BLOCK),
-            material -> material.getSingular() + "_PILLAR"),
-
-    TILES(false, List.of(BlockShape.values()),
-            material -> material.getSingular() + "_TILES"),
-
-    DARK(false, List.of(BlockShape.values()));
-
-
-    private final boolean isColumn;
-    private final boolean[] allowedShapes = new boolean[BlockShape.values().length];
-    private Function<BlockMaterial,String> namingPattern = material -> this.name() + "_" + material;
-
-    BlockVariant(boolean isColumn, List<BlockShape> allowedShapes) {
-        this.isColumn = isColumn;
-        for (BlockShape shape : allowedShapes) {
-            this.allowedShapes[shape.ordinal()] = true;
-        }
-    }
-
-    BlockVariant(boolean isColumn, List<BlockShape> allowedShapes, Function<BlockMaterial,String> namingPattern) {
-        this(isColumn, allowedShapes);
+    BlockVariant(String namingPattern, BlockShape... allowedShapes) {
         this.namingPattern = namingPattern;
+        Arrays.stream(allowedShapes).forEach(this::allowShape);
     }
 
+    private void allowShape(BlockShape shape) {
+        this.allowedShapes[shape.ordinal() - 1] = true;
+    }
 
     public boolean hasShape(BlockShape shape) {
-        return allowedShapes[shape.ordinal()];
-    }
-
-    public boolean isColumn() {
-        return isColumn;
+        if(shape == FULL_BLOCK)
+            return true;
+        return allowedShapes[shape.ordinal() - 1];
     }
 
     public String createName(BlockMaterial material, BlockShape shape) {
 
-        StringBuilder stringBuilder = new StringBuilder();
-
-        stringBuilder.append(namingPattern.apply(material));
+        String nameFromPattern = this.applyNamingPattern(material);
+        StringBuilder stringBuilder = new StringBuilder(nameFromPattern);
 
         if(shape != FULL_BLOCK) {
-            if(stringBuilder.toString().endsWith("S"))
+            if(nameFromPattern.endsWith("S"))
                 stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             stringBuilder.append("_").append(shape);
         }
         return stringBuilder.toString().toLowerCase()
                 .replace("brick_brick","brick");
+    }
+
+    private String applyNamingPattern(BlockMaterial material) {
+
+        return namingPattern
+                .replace("[materialPlural]", material.name())
+                .replace("[materialSingular]", material.getSingular())
+                .replace("[variant]", this.name());
     }
 }

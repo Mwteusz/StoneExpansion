@@ -57,17 +57,18 @@ public class ModRecipes extends FabricRecipeProvider {
 
         for(BlockMaterial material : BlockMaterial.values()) {
             ModBlocks.getBlock(material, DARK, BlockShape.FULL_BLOCK).ifPresent(block ->
-                    createShapelessRecipe(ModTags.Items.getTag(material), block.asItem(), exporter)
+                    createShapelessDarkRecipe(ModTags.Items.getTag(material), block.asItem(), exporter)
             );
         }
     }
 
     private static boolean validateStonecutterRecipe(BlockVariant outputVariant, BlockMaterial inputMaterial, BlockVariant inputVariant) {
-        if(outputVariant == BASE) //you cannot craft back into a base block
-            return false;
+
         if(inputMaterial == PRISMARINE && inputVariant == BASE) //prismarine bricks are more expensive to craft in vanilla, so base block cannot be used
             return false;
         if(outputVariant == DARK ^ inputVariant == DARK) //dark variant stonecutter recipes are separated from the rest
+            return false;
+        if(outputVariant == BASE && !inputMaterial.isBaseCraftable())
             return false;
         return true;
     }
@@ -86,7 +87,7 @@ public class ModRecipes extends FabricRecipeProvider {
         }
     }
 
-    private static void createShapelessRecipe(TagKey<Item> inputs, Item output, Consumer<RecipeJsonProvider> exporter) {
+    private static void createShapelessDarkRecipe(TagKey<Item> inputs, Item output, Consumer<RecipeJsonProvider> exporter) {
         new ShapelessRecipeJsonBuilder(RecipeCategory.BUILDING_BLOCKS, output, 1)
                 .input(Ingredient.fromTag(inputs))
                 .input(Items.BLACK_DYE)

@@ -8,7 +8,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.mwti.stoneexpansion.StoneExpansion;
-import net.mwti.stoneexpansion.datagen.ModModels;
 
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -45,11 +44,11 @@ public class ModBlocks {
 
     public static void registerModBlocks(){
 
-        add(BASE, ANDESITE, new ShapedBlocks(Blocks.ANDESITE).add(STAIRS, Blocks.ANDESITE_STAIRS).add(SLAB, Blocks.ANDESITE_SLAB).add(WALL, Blocks.ANDESITE_WALL));
+        add(BASE, ANDESITE, new BlockFamily(Blocks.ANDESITE).stairs(Blocks.ANDESITE_STAIRS).slab(Blocks.ANDESITE_SLAB).wall(Blocks.ANDESITE_WALL));
         register(COBBLED, ANDESITE, new Block(FabricBlockSettings.copyOf(Blocks.ANDESITE)));
         register(SMOOTH, ANDESITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_ANDESITE)));
         register(CUT, ANDESITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_ANDESITE)));
-        add(POLISHED, ANDESITE, new ShapedBlocks(Blocks.POLISHED_ANDESITE).add(STAIRS, Blocks.POLISHED_ANDESITE_STAIRS).add(SLAB, Blocks.POLISHED_ANDESITE_SLAB));
+        add(POLISHED, ANDESITE, new BlockFamily(Blocks.POLISHED_ANDESITE).stairs(Blocks.POLISHED_ANDESITE_STAIRS).slab(Blocks.POLISHED_ANDESITE_SLAB));
         register(CHISELED, ANDESITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_ANDESITE)));
         register(ANDESITE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.POLISHED_ANDESITE)));
         register(ANDESITE, BlockVariant.BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_ANDESITE)));
@@ -57,11 +56,11 @@ public class ModBlocks {
         register(DARK, ANDESITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_ANDESITE)));
         register(ANDESITE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_ANDESITE)));
 
-        add(BASE, GRANITE, new ShapedBlocks(Blocks.GRANITE).add(STAIRS, Blocks.GRANITE_STAIRS).add(SLAB, Blocks.GRANITE_SLAB).add(WALL, Blocks.GRANITE_WALL));
+        add(BASE, GRANITE, new BlockFamily(Blocks.GRANITE).stairs(Blocks.GRANITE_STAIRS).slab(Blocks.GRANITE_SLAB).wall(Blocks.GRANITE_WALL));
         register(COBBLED, GRANITE, new Block(FabricBlockSettings.copyOf(Blocks.GRANITE)));
         register(SMOOTH, GRANITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_GRANITE)));
         register(CUT, GRANITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_GRANITE)));
-        add(POLISHED, GRANITE, new ShapedBlocks(Blocks.POLISHED_GRANITE).add(STAIRS, Blocks.POLISHED_GRANITE_STAIRS).add(SLAB, Blocks.POLISHED_GRANITE_SLAB));
+        add(POLISHED, GRANITE, new BlockFamily(Blocks.POLISHED_GRANITE).stairs(Blocks.POLISHED_GRANITE_STAIRS).slab(Blocks.POLISHED_GRANITE_SLAB));
         register(CHISELED, GRANITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_GRANITE)));
         register(GRANITE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.POLISHED_GRANITE)));
         register(GRANITE, BlockVariant.BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_GRANITE)));
@@ -69,11 +68,11 @@ public class ModBlocks {
         register(DARK, GRANITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_GRANITE)));
         register(GRANITE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_GRANITE)));
 
-        add(BASE, DIORITE, new ShapedBlocks(Blocks.DIORITE).add(STAIRS, Blocks.DIORITE_STAIRS).add(SLAB, Blocks.DIORITE_SLAB).add(WALL, Blocks.DIORITE_WALL));
+        add(BASE, DIORITE, new BlockFamily(Blocks.DIORITE).stairs(Blocks.DIORITE_STAIRS).slab(Blocks.DIORITE_SLAB).wall(Blocks.DIORITE_WALL));
         register(COBBLED, DIORITE, new Block(FabricBlockSettings.copyOf(Blocks.DIORITE)));
         register(SMOOTH, DIORITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_DIORITE)));
         register(CUT, DIORITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_DIORITE)));
-        add(POLISHED, DIORITE, new ShapedBlocks(Blocks.POLISHED_DIORITE).add(STAIRS, Blocks.POLISHED_DIORITE_STAIRS).add(SLAB, Blocks.POLISHED_DIORITE_SLAB));
+        add(POLISHED, DIORITE, new BlockFamily(Blocks.POLISHED_DIORITE).stairs(Blocks.POLISHED_DIORITE_STAIRS).slab(Blocks.POLISHED_DIORITE_SLAB));
         register(CHISELED, DIORITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_DIORITE)));
         register(DIORITE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.POLISHED_DIORITE)));
         register(DIORITE, BlockVariant.BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_DIORITE)));
@@ -81,43 +80,55 @@ public class ModBlocks {
         register(DARK, DIORITE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_DIORITE)));
         register(DIORITE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_DIORITE)));
 
-        add(BASE, STONE, new ShapedBlocks(Blocks.STONE).add(STAIRS, Blocks.STONE_STAIRS).add(SLAB, Blocks.STONE_SLAB));
-        add(COBBLED, STONE, new ShapedBlocks(Blocks.COBBLESTONE).add(STAIRS, Blocks.COBBLESTONE_STAIRS).add(SLAB, Blocks.COBBLESTONE_SLAB).add(WALL, Blocks.COBBLESTONE_WALL));
-        register(SMOOTH, STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        add(BASE, STONE, new BlockFamily(Blocks.STONE).stairs(Blocks.STONE_STAIRS).slab(Blocks.STONE_SLAB));
+        add(COBBLED, STONE, new BlockFamily(Blocks.COBBLESTONE).stairs(Blocks.COBBLESTONE_STAIRS).slab(Blocks.COBBLESTONE_SLAB).wall(Blocks.COBBLESTONE_WALL));
+        register(SMOOTH, STONE, new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
         register(CUT, STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
         register(POLISHED, STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
         add(CHISELED, STONE, Blocks.CHISELED_STONE_BRICKS);
         register(STONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
-        add(STONE, BlockVariant.BRICKS, new ShapedBlocks( Blocks.STONE_BRICKS).add(STAIRS, Blocks.STONE_BRICK_STAIRS).add(SLAB, Blocks.STONE_BRICK_SLAB).add(WALL, Blocks.STONE_BRICK_WALL));
+        add(STONE, BlockVariant.BRICKS, new BlockFamily( Blocks.STONE_BRICKS).stairs(Blocks.STONE_BRICK_STAIRS).slab(Blocks.STONE_BRICK_SLAB).wall(Blocks.STONE_BRICK_WALL));
         add(CRACKED_BRICKS, STONE, Blocks.CRACKED_STONE_BRICKS);
         register(DARK, STONE, new Block(FabricBlockSettings.copyOf(Blocks.STONE_BRICKS)));
         register(STONE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.STONE_BRICKS)));
 
-        // Mossy stone has no base
-        add(COBBLED, MOSSY_STONE, new ShapedBlocks(Blocks.MOSSY_COBBLESTONE).add(STAIRS, Blocks.MOSSY_COBBLESTONE_STAIRS).add(SLAB, Blocks.MOSSY_COBBLESTONE_SLAB).add(WALL, Blocks.MOSSY_COBBLESTONE_WALL));
-        register(SMOOTH, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
-        register(CUT, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
-        register(POLISHED, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
-        register(CHISELED, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
-        register(MOSSY_STONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
-        add(MOSSY_STONE, BlockVariant.BRICKS, new ShapedBlocks(Blocks.MOSSY_STONE_BRICKS).add(STAIRS, Blocks.MOSSY_STONE_BRICK_STAIRS).add(SLAB, Blocks.MOSSY_STONE_BRICK_SLAB).add(WALL, Blocks.MOSSY_STONE_BRICK_WALL));
+        register(BASE, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_COBBLESTONE)));
+        add(COBBLED, MOSSY_STONE, new BlockFamily(Blocks.MOSSY_COBBLESTONE).stairs(Blocks.MOSSY_COBBLESTONE_STAIRS).slab(Blocks.MOSSY_COBBLESTONE_SLAB).wall(Blocks.MOSSY_COBBLESTONE_WALL));
+        register(SMOOTH, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
+        register(CUT, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
+        register(POLISHED, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
+        register(CHISELED, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
+        register(MOSSY_STONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
+        add(MOSSY_STONE, BlockVariant.BRICKS, new BlockFamily(Blocks.MOSSY_STONE_BRICKS).stairs(Blocks.MOSSY_STONE_BRICK_STAIRS).slab(Blocks.MOSSY_STONE_BRICK_SLAB).wall(Blocks.MOSSY_STONE_BRICK_WALL));
         register(CRACKED_BRICKS, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
         register(DARK, MOSSY_STONE, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
         register(MOSSY_STONE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.MOSSY_STONE_BRICKS)));
 
-        add(BASE, END_STONE,Blocks.END_STONE);
+        add(BASE, SMOOTHSTONE, new BlockFamily(Blocks.SMOOTH_STONE).slab(Blocks.SMOOTH_STONE_SLAB));
+        register(COBBLED, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(SMOOTH, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(CUT, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(POLISHED, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(CHISELED, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(SMOOTHSTONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(SMOOTHSTONE, BlockVariant.BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(CRACKED_BRICKS, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(DARK, SMOOTHSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+        register(SMOOTHSTONE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_STONE)));
+
+        add(BASE, END_STONE, Blocks.END_STONE);
         register(COBBLED, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE)));
-        register(SMOOTH, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE)));
-        register(CUT, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE)));
-        register(POLISHED, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE)));
+        register(SMOOTH, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
+        register(CUT, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
+        register(POLISHED, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
         register(CHISELED, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
         register(END_STONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
-        add(END_STONE, BlockVariant.BRICKS, new ShapedBlocks(Blocks.END_STONE_BRICKS).add(STAIRS, Blocks.END_STONE_BRICK_STAIRS).add(SLAB, Blocks.END_STONE_BRICK_SLAB).add(WALL, Blocks.END_STONE_BRICK_WALL));
+        add(END_STONE, BlockVariant.BRICKS, new BlockFamily(Blocks.END_STONE_BRICKS).stairs(Blocks.END_STONE_BRICK_STAIRS).slab(Blocks.END_STONE_BRICK_SLAB).wall(Blocks.END_STONE_BRICK_WALL));
         register(CRACKED_BRICKS, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
         register(DARK, END_STONE, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
         register(END_STONE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS)));
 
-        add(BASE, PURPUR, new ShapedBlocks(Blocks.PURPUR_BLOCK).add(STAIRS, Blocks.PURPUR_STAIRS).add(SLAB, Blocks.PURPUR_SLAB));
+        add(BASE, PURPUR, new BlockFamily(Blocks.PURPUR_BLOCK).stairs(Blocks.PURPUR_STAIRS).slab(Blocks.PURPUR_SLAB));
         register(COBBLED, PURPUR, new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK)));
         register(SMOOTH, PURPUR, new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK)));
         register(CUT, PURPUR, new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK)));
@@ -129,10 +140,10 @@ public class ModBlocks {
         register(DARK, PURPUR, new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK)));
         register(PURPUR, TILES, new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK)));
 
-        add(BASE, SANDSTONE, new ShapedBlocks(Blocks.SANDSTONE).add(STAIRS, Blocks.SANDSTONE_STAIRS).add(SLAB, Blocks.SANDSTONE_SLAB).add(WALL, Blocks.SANDSTONE_WALL));
+        add(BASE, SANDSTONE, new BlockFamily(Blocks.SANDSTONE).stairs(Blocks.SANDSTONE_STAIRS).slab(Blocks.SANDSTONE_SLAB).wall(Blocks.SANDSTONE_WALL));
         register(COBBLED, SANDSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
-        add(SMOOTH, SANDSTONE, new ShapedBlocks( Blocks.SMOOTH_SANDSTONE).add(STAIRS, Blocks.SMOOTH_SANDSTONE_STAIRS).add(SLAB, Blocks.SMOOTH_SANDSTONE_SLAB));
-        add(CUT, SANDSTONE, new ShapedBlocks(Blocks.CUT_SANDSTONE).add(SLAB, Blocks.CUT_SANDSTONE_SLAB));
+        add(SMOOTH, SANDSTONE, new BlockFamily( Blocks.SMOOTH_SANDSTONE).stairs(Blocks.SMOOTH_SANDSTONE_STAIRS).slab(Blocks.SMOOTH_SANDSTONE_SLAB));
+        add(CUT, SANDSTONE, new BlockFamily(Blocks.CUT_SANDSTONE).slab(Blocks.CUT_SANDSTONE_SLAB));
         register(POLISHED, SANDSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_SANDSTONE)));
         add(CHISELED, SANDSTONE, Blocks.CHISELED_SANDSTONE);
         register(SANDSTONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
@@ -141,10 +152,10 @@ public class ModBlocks {
         register(DARK, SANDSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
         register(SANDSTONE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE)));
 
-        add(BASE, RED_SANDSTONE, new ShapedBlocks(Blocks.RED_SANDSTONE).add(STAIRS, Blocks.RED_SANDSTONE_STAIRS).add(SLAB, Blocks.RED_SANDSTONE_SLAB).add(WALL, Blocks.RED_SANDSTONE_WALL));
+        add(BASE, RED_SANDSTONE, new BlockFamily(Blocks.RED_SANDSTONE).stairs(Blocks.RED_SANDSTONE_STAIRS).slab(Blocks.RED_SANDSTONE_SLAB).wall(Blocks.RED_SANDSTONE_WALL));
         register(COBBLED, RED_SANDSTONE, new Block(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE)));
-        add(SMOOTH, RED_SANDSTONE, new ShapedBlocks(Blocks.SMOOTH_RED_SANDSTONE).add(STAIRS, Blocks.SMOOTH_RED_SANDSTONE_STAIRS).add(SLAB, Blocks.SMOOTH_RED_SANDSTONE_SLAB));
-        add(CUT, RED_SANDSTONE, new ShapedBlocks(Blocks.CUT_RED_SANDSTONE).add(SLAB, Blocks.CUT_RED_SANDSTONE_SLAB));
+        add(SMOOTH, RED_SANDSTONE, new BlockFamily(Blocks.SMOOTH_RED_SANDSTONE).stairs(Blocks.SMOOTH_RED_SANDSTONE_STAIRS).slab(Blocks.SMOOTH_RED_SANDSTONE_SLAB));
+        add(CUT, RED_SANDSTONE, new BlockFamily(Blocks.CUT_RED_SANDSTONE).slab(Blocks.CUT_RED_SANDSTONE_SLAB));
         register(POLISHED, RED_SANDSTONE, new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_RED_SANDSTONE)));
         add(CHISELED, RED_SANDSTONE, Blocks.CHISELED_RED_SANDSTONE);
         register(RED_SANDSTONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE)));
@@ -154,25 +165,25 @@ public class ModBlocks {
         register(RED_SANDSTONE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE)));
 
         add(BASE, DEEPSLATE, Blocks.DEEPSLATE);
-        add(COBBLED, DEEPSLATE, new ShapedBlocks(Blocks.COBBLED_DEEPSLATE).add(SLAB, Blocks.COBBLED_DEEPSLATE_SLAB).add(STAIRS, Blocks.COBBLED_DEEPSLATE_STAIRS).add(WALL, Blocks.COBBLED_DEEPSLATE_WALL));
+        add(COBBLED, DEEPSLATE, new BlockFamily(Blocks.COBBLED_DEEPSLATE).slab(Blocks.COBBLED_DEEPSLATE_SLAB).stairs(Blocks.COBBLED_DEEPSLATE_STAIRS).wall(Blocks.COBBLED_DEEPSLATE_WALL));
         register(SMOOTH, DEEPSLATE, new Block(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_BRICKS)));
         register(CUT, DEEPSLATE, new Block(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_BRICKS)));
-        add(POLISHED, DEEPSLATE, new ShapedBlocks(Blocks.POLISHED_DEEPSLATE).add(STAIRS, Blocks.POLISHED_DEEPSLATE_STAIRS).add(SLAB, Blocks.POLISHED_DEEPSLATE_SLAB).add(WALL, Blocks.POLISHED_DEEPSLATE_WALL));
+        add(POLISHED, DEEPSLATE, new BlockFamily(Blocks.POLISHED_DEEPSLATE).stairs(Blocks.POLISHED_DEEPSLATE_STAIRS).slab(Blocks.POLISHED_DEEPSLATE_SLAB).wall(Blocks.POLISHED_DEEPSLATE_WALL));
         add(CHISELED, DEEPSLATE, Blocks.CHISELED_DEEPSLATE);
         register(DEEPSLATE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_BRICKS)));
-        add(DEEPSLATE, BlockVariant.BRICKS, new ShapedBlocks(Blocks.DEEPSLATE_BRICKS).add(STAIRS, Blocks.DEEPSLATE_BRICK_STAIRS).add(SLAB, Blocks.DEEPSLATE_BRICK_SLAB).add(WALL, Blocks.DEEPSLATE_BRICK_WALL));
+        add(DEEPSLATE, BlockVariant.BRICKS, new BlockFamily(Blocks.DEEPSLATE_BRICKS).stairs(Blocks.DEEPSLATE_BRICK_STAIRS).slab(Blocks.DEEPSLATE_BRICK_SLAB).wall(Blocks.DEEPSLATE_BRICK_WALL));
         add(CRACKED_BRICKS, DEEPSLATE, Blocks.CRACKED_DEEPSLATE_BRICKS);
         register(DARK, DEEPSLATE, new Block(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_BRICKS)));
-        add(DEEPSLATE, TILES, new ShapedBlocks(Blocks.DEEPSLATE_TILES).add(STAIRS, Blocks.DEEPSLATE_TILE_STAIRS).add(SLAB, Blocks.DEEPSLATE_TILE_SLAB).add(WALL, Blocks.DEEPSLATE_TILE_WALL));
+        add(DEEPSLATE, TILES, new BlockFamily(Blocks.DEEPSLATE_TILES).stairs(Blocks.DEEPSLATE_TILE_STAIRS).slab(Blocks.DEEPSLATE_TILE_SLAB).wall(Blocks.DEEPSLATE_TILE_WALL));
 
-        add(BASE, BLACKSTONE, new ShapedBlocks(Blocks.BLACKSTONE).add(STAIRS, Blocks.BLACKSTONE_STAIRS).add(SLAB, Blocks.BLACKSTONE_SLAB).add(WALL, Blocks.BLACKSTONE_WALL));
+        add(BASE, BLACKSTONE, new BlockFamily(Blocks.BLACKSTONE).stairs(Blocks.BLACKSTONE_STAIRS).slab(Blocks.BLACKSTONE_SLAB).wall(Blocks.BLACKSTONE_WALL));
         register(COBBLED, BLACKSTONE, new Block(FabricBlockSettings.copyOf(Blocks.BLACKSTONE)));
         register(SMOOTH, BLACKSTONE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BLACKSTONE_BRICKS)));
         register(CUT, BLACKSTONE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BLACKSTONE_BRICKS)));
-        add(POLISHED, BLACKSTONE, new ShapedBlocks(Blocks.POLISHED_BLACKSTONE).add(STAIRS, Blocks.POLISHED_BLACKSTONE_STAIRS).add(SLAB, Blocks.POLISHED_BLACKSTONE_SLAB).add(WALL, Blocks.POLISHED_BLACKSTONE_WALL));
+        add(POLISHED, BLACKSTONE, new BlockFamily(Blocks.POLISHED_BLACKSTONE).stairs(Blocks.POLISHED_BLACKSTONE_STAIRS).slab(Blocks.POLISHED_BLACKSTONE_SLAB).wall(Blocks.POLISHED_BLACKSTONE_WALL));
         add(CHISELED, BLACKSTONE, Blocks.CHISELED_POLISHED_BLACKSTONE);
         register(BLACKSTONE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.POLISHED_BLACKSTONE_BRICKS)));
-        add(BLACKSTONE, BlockVariant.BRICKS, new ShapedBlocks(Blocks.POLISHED_BLACKSTONE_BRICKS).add(STAIRS, Blocks.POLISHED_BLACKSTONE_BRICK_STAIRS).add(SLAB, Blocks.POLISHED_BLACKSTONE_BRICK_SLAB).add(WALL, Blocks.POLISHED_BLACKSTONE_BRICK_WALL));
+        add(BLACKSTONE, BlockVariant.BRICKS, new BlockFamily(Blocks.POLISHED_BLACKSTONE_BRICKS).stairs(Blocks.POLISHED_BLACKSTONE_BRICK_STAIRS).slab(Blocks.POLISHED_BLACKSTONE_BRICK_SLAB).wall(Blocks.POLISHED_BLACKSTONE_BRICK_WALL));
         add(CRACKED_BRICKS, BLACKSTONE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
         register(DARK, BLACKSTONE, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BLACKSTONE_BRICKS)));
         register(BLACKSTONE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BLACKSTONE_BRICKS)));
@@ -184,7 +195,7 @@ public class ModBlocks {
         register(POLISHED, MUD, new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS)));
         register(CHISELED, MUD, new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS)));
         register(MUD, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS)));
-        add(MUD, BlockVariant.BRICKS, new ShapedBlocks(Blocks.MUD_BRICKS).add(STAIRS, Blocks.MUD_BRICK_STAIRS).add(SLAB, Blocks.MUD_BRICK_SLAB).add(WALL, Blocks.MUD_BRICK_WALL));
+        add(MUD, BlockVariant.BRICKS, new BlockFamily(Blocks.MUD_BRICKS).stairs(Blocks.MUD_BRICK_STAIRS).slab(Blocks.MUD_BRICK_SLAB).wall(Blocks.MUD_BRICK_WALL));
         register(CRACKED_BRICKS, MUD, new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS)));
         register(DARK, MUD, new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS)));
         register(MUD, TILES, new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS)));
@@ -196,7 +207,7 @@ public class ModBlocks {
         register(POLISHED, BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.BRICKS)));
         register(CHISELED, BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.BRICKS)));
         register(BRICKS, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.BRICKS)));
-        add(BRICKS, BlockVariant.BRICKS, new ShapedBlocks(Blocks.BRICKS).add(STAIRS, Blocks.BRICK_STAIRS).add(SLAB, Blocks.BRICK_SLAB).add(WALL, Blocks.BRICK_WALL));
+        add(BRICKS, BlockVariant.BRICKS, new BlockFamily(Blocks.BRICKS).stairs(Blocks.BRICK_STAIRS).slab(Blocks.BRICK_SLAB).wall(Blocks.BRICK_WALL));
         register(CRACKED_BRICKS, BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.BRICKS)));
         register(DARK, BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.BRICKS)));
         register(BRICKS, TILES, new Block(FabricBlockSettings.copyOf(Blocks.BRICKS)));
@@ -208,7 +219,7 @@ public class ModBlocks {
         register(POLISHED, NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.NETHER_BRICKS)));
         add(CHISELED, NETHER_BRICKS, Blocks.CHISELED_NETHER_BRICKS);
         register(NETHER_BRICKS, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.NETHER_BRICKS)));
-        add(NETHER_BRICKS, BlockVariant.BRICKS, new ShapedBlocks(Blocks.NETHER_BRICKS).add(STAIRS, Blocks.NETHER_BRICK_STAIRS).add(SLAB, Blocks.NETHER_BRICK_SLAB).add(WALL, Blocks.NETHER_BRICK_WALL));
+        add(NETHER_BRICKS, BlockVariant.BRICKS, new BlockFamily(Blocks.NETHER_BRICKS).stairs(Blocks.NETHER_BRICK_STAIRS).slab(Blocks.NETHER_BRICK_SLAB).wall(Blocks.NETHER_BRICK_WALL));
         add(CRACKED_BRICKS, NETHER_BRICKS, Blocks.CRACKED_NETHER_BRICKS);
         register(DARK, NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.NETHER_BRICKS)));
         register(NETHER_BRICKS, TILES, new Block(FabricBlockSettings.copyOf(Blocks.NETHER_BRICKS)));
@@ -220,16 +231,16 @@ public class ModBlocks {
         register(POLISHED, RED_NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
         register(CHISELED, RED_NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
         register(RED_NETHER_BRICKS, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
-        add(RED_NETHER_BRICKS, BlockVariant.BRICKS, new ShapedBlocks(Blocks.RED_NETHER_BRICKS).add(SLAB, Blocks.RED_NETHER_BRICK_SLAB).add(STAIRS, Blocks.RED_NETHER_BRICK_STAIRS).add(WALL, Blocks.RED_NETHER_BRICK_WALL));
+        add(RED_NETHER_BRICKS, BlockVariant.BRICKS, new BlockFamily(Blocks.RED_NETHER_BRICKS).slab(Blocks.RED_NETHER_BRICK_SLAB).stairs(Blocks.RED_NETHER_BRICK_STAIRS).wall(Blocks.RED_NETHER_BRICK_WALL));
         register(CRACKED_BRICKS, RED_NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
         register(DARK, RED_NETHER_BRICKS, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
         register(RED_NETHER_BRICKS, TILES, new Block(FabricBlockSettings.copyOf(Blocks.RED_NETHER_BRICKS)));
 
         // Base variant is the same as Polished variant
         register(COBBLED, QUARTZ, new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK)));
-        add(SMOOTH, QUARTZ, new ShapedBlocks(Blocks.SMOOTH_QUARTZ).add(STAIRS, Blocks.SMOOTH_QUARTZ_STAIRS).add(SLAB, Blocks.SMOOTH_QUARTZ_SLAB));
+        add(SMOOTH, QUARTZ, new BlockFamily(Blocks.SMOOTH_QUARTZ).stairs(Blocks.SMOOTH_QUARTZ_STAIRS).slab(Blocks.SMOOTH_QUARTZ_SLAB));
         register(CUT, QUARTZ, new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK)));
-        add(POLISHED, QUARTZ, new ShapedBlocks(Blocks.QUARTZ_BLOCK).add(STAIRS, Blocks.QUARTZ_STAIRS).add(SLAB, Blocks.QUARTZ_SLAB));
+        add(POLISHED, QUARTZ, new BlockFamily(Blocks.QUARTZ_BLOCK).stairs(Blocks.QUARTZ_STAIRS).slab(Blocks.QUARTZ_SLAB));
         add(CHISELED, QUARTZ, Blocks.CHISELED_QUARTZ_BLOCK);
         add(QUARTZ, PILLAR, Blocks.QUARTZ_PILLAR);
         add(QUARTZ, BlockVariant.BRICKS, Blocks.QUARTZ_BRICKS);
@@ -237,16 +248,16 @@ public class ModBlocks {
         register(DARK, QUARTZ, new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BRICKS)));
         register(QUARTZ, TILES, new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BRICKS)));
 
-        add(BASE, PRISMARINE, new ShapedBlocks(Blocks.PRISMARINE).add(STAIRS, Blocks.PRISMARINE_STAIRS).add(SLAB, Blocks.PRISMARINE_SLAB).add(WALL, Blocks.PRISMARINE_WALL));
+        add(BASE, PRISMARINE, new BlockFamily(Blocks.PRISMARINE).stairs(Blocks.PRISMARINE_STAIRS).slab(Blocks.PRISMARINE_SLAB).wall(Blocks.PRISMARINE_WALL));
         // Cobbled Prismarine would not really make sense as Prismarine is already cobble-like
         register(SMOOTH, PRISMARINE, new Block(FabricBlockSettings.copyOf(Blocks.PRISMARINE_BRICKS)));
         register(CUT, PRISMARINE, new Block(FabricBlockSettings.copyOf(Blocks.PRISMARINE_BRICKS)));
         register(POLISHED, PRISMARINE, new Block(FabricBlockSettings.copyOf(Blocks.PRISMARINE_BRICKS)));
         register(CHISELED, PRISMARINE, new Block(FabricBlockSettings.copyOf(Blocks.PRISMARINE_BRICKS)));
         register(PRISMARINE, PILLAR, new PillarBlock(FabricBlockSettings.copyOf(Blocks.PRISMARINE_BRICKS)));
-        add(PRISMARINE, BlockVariant.BRICKS, new ShapedBlocks(Blocks.PRISMARINE_BRICKS).add(STAIRS, Blocks.PRISMARINE_BRICK_STAIRS).add(SLAB, Blocks.PRISMARINE_BRICK_SLAB));
+        add(PRISMARINE, BlockVariant.BRICKS, new BlockFamily(Blocks.PRISMARINE_BRICKS).stairs(Blocks.PRISMARINE_BRICK_STAIRS).slab(Blocks.PRISMARINE_BRICK_SLAB));
         register(CRACKED_BRICKS, PRISMARINE, new Block(FabricBlockSettings.copyOf(Blocks.PRISMARINE_BRICKS)));
-        add(DARK, PRISMARINE, new ShapedBlocks(Blocks.DARK_PRISMARINE).add(STAIRS, Blocks.DARK_PRISMARINE_STAIRS).add(SLAB, Blocks.DARK_PRISMARINE_SLAB));
+        add(DARK, PRISMARINE, new BlockFamily(Blocks.DARK_PRISMARINE).stairs(Blocks.DARK_PRISMARINE_STAIRS).slab(Blocks.DARK_PRISMARINE_SLAB));
         register(PRISMARINE, TILES, new Block(FabricBlockSettings.copyOf(Blocks.PRISMARINE_BRICKS)));
 
         add(BASE, BASALT, Blocks.BASALT);
@@ -260,6 +271,7 @@ public class ModBlocks {
         register(CRACKED_BRICKS, BASALT, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT)));
         register(DARK, BASALT, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT)));
         register(BASALT, TILES, new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT)));
+
     }
 
     private static void register(BlockVariant variant, BlockMaterial material, Block block) {
@@ -276,16 +288,16 @@ public class ModBlocks {
         add(material, variant, block);
     }
     private static void add(BlockMaterial material, BlockVariant variant, Block block) {
-        add(variant, material, new ShapedBlocks(block));
+        add(variant, material, new BlockFamily(block));
     }
 
-    private static void add(BlockMaterial material, BlockVariant variant, ShapedBlocks shapedBlocks) {
-        add(variant, material, shapedBlocks);
+    private static void add(BlockMaterial material, BlockVariant variant, BlockFamily blockFamily) {
+        add(variant, material, blockFamily);
     }
-    private static void add(BlockVariant variant, BlockMaterial material, ShapedBlocks shapedBlocks) {
+    private static void add(BlockVariant variant, BlockMaterial material, BlockFamily blockFamily) {
 
         for(BlockShape shape : BlockShape.values()) {
-            addOrRegister(variant, material, shape, shapedBlocks.get(shape));
+            addOrRegister(variant, material, shape, blockFamily.get(shape));
         }
     }
 
@@ -302,13 +314,12 @@ public class ModBlocks {
     }
 
     private static void registerBlock(Block block, BlockMaterial material, BlockVariant variant, BlockShape shape) {
-        if(ModModels.isModelBlacklisted(material,variant,shape))
-            return;
+
         Block shapedBlock = shape.newShapedBlock(block);
-        String name = getBlockName(material, variant, shape);
+        String blockName = getBlockName(material, variant, shape);
         setBlock(material, variant, shape, shapedBlock);
-        registerBlockItem(name, shapedBlock);
-        Registry.register(Registries.BLOCK, new Identifier(StoneExpansion.MOD_ID, name), shapedBlock);
+        registerBlockItem(blockName, shapedBlock);
+        Registry.register(Registries.BLOCK, new Identifier(StoneExpansion.MOD_ID, blockName), shapedBlock);
     }
 
     static void registerBlockItem(String name, Block block) {

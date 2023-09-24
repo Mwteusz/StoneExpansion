@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "stoneexpansion:block/blackstone_pillar_top",
-    "side": "stoneexpansion:block/blackstone_pillar"
-  }
-}
